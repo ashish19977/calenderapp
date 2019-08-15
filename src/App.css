@@ -1,0 +1,180 @@
+
+#noholiday{
+  font-size: 30px;
+  font-family:monospace; ;
+  font: bolder;
+}
+
+.main-div{
+  width: 100%;
+  display: flex;
+  height: 82%;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.header-div{
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.upcoming-holiday-header{
+  font:bold;
+  font-size: 25px;
+  width:45%;
+  height: 95%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   border-radius: 10px;
+
+}
+
+.passed-holiday-header{
+  padding: 5px;
+   font:bold;
+   font-size: 25px;
+   margin-left: 3%;
+   border-radius: 10px;
+  width:45%;
+  height: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.passed-holiday-div{
+   font:bold;
+   border-radius: 20px;
+   margin-bottom: 2%;
+  width:100%;
+  margin-top: 2%;
+max-height: 60%;
+ 
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
+}
+.passed-holiday-div2{
+   font:bold;
+   font-size: 500%;
+   border-radius: 10px;
+  width:100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.today-div{
+ width: 100%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.todayholiday-div{
+  font-size: 20px;
+  font:bold;
+  padding-left:  50px;
+  padding-right: 50px;
+  padding-top:  5px;
+  border-radius: 5px;
+ margin-bottom: 1%; 
+  background-color: black;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  color: orange;
+  justify-content: center;
+}
+
+#holiday-button{
+  background-color: purple;
+  color:white;
+  border:none;
+  border-radius: 20px;
+  padding: 5px;
+  margin-bottom: 2px;
+}
+
+.particularholiday-div{
+  margin-top: 1%;
+  margin-left: 1%;
+  background-color: rgba(0,0,0,.1);
+  font:bolder;
+  height: 9%;
+ width:12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+overflow: hidden;
+}
+
+#p1{
+  font-size: 60px;
+}
+
+#p2{
+  font: bolder;
+  font-size: 25px;
+}
+
+.holiday-modal{
+  border:3px solid orange;
+  position: absolute;
+  width: 80%;
+  overflow: hidden;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 9%;
+  border-radius: 10px;
+  margin-bottom: 1%;
+margin-top: 1%;
+  
+}
+
+.insidemodal-div{
+   width: 85%;
+   height: 80%;
+   display: flex;
+   align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+#close-button{
+  border-radius: 5px;
+  border:none;
+  padding: 15px;
+  background-color: green;
+  color: white;
+  margin-bottom: 2px;
+}
+
+#close-button:hover{
+  cursor: pointer;
+  background-color: red;
+}
+#para-description{
+  text-align: center;
+  margin-left: 1%;
+  margin-right: 1%;
+  color: white;
+}
+#holiday-name-in-modal{
+  color: orange;
+  font-weight: bold;
+
+}
