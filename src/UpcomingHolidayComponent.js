@@ -44,10 +44,9 @@ class UpcomingHolidayComponent extends React.Component{
 	}
 render(){
 
-// handing error if occured
-	if(this.props.errormessage=="Error Loading Data")
+// handing error if occured in net or api
+	if(this.props.errormessage=="Erorr Loading Data")
 	{
-		console.log("yes")
 		return(<div className="passed-holiday-div2">{this.props.errormessage}</div>)
 	}
 
