@@ -14,7 +14,6 @@ class App extends React.Component {
       shown: 0,
       error: null,
       isLoaded: false,
-      LoadingMessage: "",
       bgcolor: "",
       bgcolorheader1: "rgba(0,0,0,.6)",
       bgcolorheader2: "rgba(0,0,0,.2)",
@@ -33,7 +32,7 @@ class App extends React.Component {
 
   componentDidMount() {
     fetch(
-      "https://calendarific.com/api/v2/holidays?country=IN&year=2019&api_key=efb5d27ee82d7cb28b83f6f25a1722224f89b4cfdb3b38d26a823a1648049213"
+      'https://calendarific.com/api/v2/holidays?country=IN&year='+new Date().getFullYear()+"&api_key=efb5d27ee82d7cb28b83f6f25a1722224f89b4cfdb3b38d26a823a1648049213"
     )
       .then(res => res.json())
       .then(
@@ -42,25 +41,16 @@ class App extends React.Component {
             isLoaded: true,
             holidays: result.response.holidays,
             today: result.response.holidays.filter(item => {
-              if (
-                item.date.iso.substr(0, 10) ==
-                new Date().toISOString().substr(0, 10)
-              )
-                return item;
+              return(item.date.iso.substr(0, 10) ===new Date().toISOString().substr(0, 10))
             }),
-
             passed: result.response.holidays.filter(item => {
-              if (new Date(item.date.iso) < new Date()) return item;
+              return (new Date(item.date.iso) < new Date())
             }),
             upcoming: result.response.holidays.filter(item => {
-              if (new Date(item.date.iso) > new Date()) return item;
+              return (new Date(item.date.iso) > new Date())
             })
           });
           //checking if todaY IS HOLIDAY
-          console.log("today = ", this.state.today);
-          console.log("all = ", this.state.holidays);
-          console.log("passed = ", this.state.passed);
-          console.log("upocoming  = ", this.state.upcoming);
         },
         error => {
           this.setState({
@@ -93,26 +83,26 @@ class App extends React.Component {
   collectDataForClick(data) {
     this.allinfo = [];
     this.state.holidays.filter(item => {
-      if (item.date.iso.substr(0, 10) == data.date.iso.substr(0, 10))
+      if (item.date.iso.substr(0, 10) === data.date.iso.substr(0, 10))
         this.allinfo.push(item);
     });
-    console.log(this.allinfo);
   }
 
   showHideModal(data) {
     this.dataforfilter = data;
     //to stop close button in modal to call this
-    if (this.state.holidaymodalonoff == "off")
+    if (this.state.holidaymodalonoff === "off")
       this.collectDataForClick(this.dataforfilter);
 
     this.setState({
-      holidaymodalonoff: this.state.holidaymodalonoff == "off" ? "on" : "off",
-      bgcolor: this.state.bgcolor == "" ? "rgba(0,0,0,.9)" : ""
+      holidaymodalonoff: this.state.holidaymodalonoff === "off" ? "on" : "off",
+      bgcolor: this.state.bgcolor === "" ? "rgba(0,0,0,.9)" : ""
     });
   }
 
   render() {
-    if (this.state.isLoaded === false) this.LoadingMessage = "Loading ...";
+    console.log(this.state.upcoming)
+    this.LoadingMessage=(this.state.isLoaded === false)?"Loading ...":""
     if (this.state.error === "Erorr") this.LoadingMessage = "";
 
     if (this.state.shown === 1)
@@ -134,7 +124,7 @@ class App extends React.Component {
         />
       );
 
-    if (this.state.holidaymodalonoff == "off")
+    if (this.state.holidaymodalonoff === "off")
       this.holidaydescriptionmodal = "";
     else
       this.holidaydescriptionmodal = (

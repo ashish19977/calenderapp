@@ -1,10 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './App.css';
-import {useState} from  'react'
 
 function removeDuplicateDate(arr){
-	console.log(arr)
 	for(var i=0;i<arr.length;i++){
 		for(var j=i+1;j<arr.length;j++){
 		if(arr[i].date.iso.substr(0,10)===arr[j].date.iso.substr(0,10)){
@@ -17,14 +14,10 @@ function removeDuplicateDate(arr){
 }
 
 function ParticularDateComponent(props){
-	const [item,setItem]=useState(null)
-
-	function setDateforshow(item){
-		setItem(item)
-		props.showHideModal(item)
-	}
-
-		var div=<div className="passed-holiday-div">{removeDuplicateDate(props.upcomingholidays2).map((item)=><div onClick={()=>{props.showHideModal(item)}} className="particularholiday-div"><span id="p1">{item.date.datetime.day}</span><span id="p2">{getMonth(item.date.datetime.month)}</span></div>)}</div>
+	var div = <div className="passed-holiday-div">{removeDuplicateDate(props.upcomingholidays2).map((item) => {
+		console.log(item)
+		return <div onClick={() => { props.showHideModal(item) }} className="particularholiday-div"><span id="p1">{item.date.datetime.day}</span><span id="p2">{getMonth(item.date.datetime.month)}</span></div>
+	})}</div>
 
 	return(div)
 }
@@ -38,27 +31,22 @@ return months[month]
 }
 
 class UpcomingHolidayComponent extends React.Component{
-	constructor(props){
-		super(props)
-
-	}
 render(){
 
 // handing error if occured in net or api
-	if(this.props.errormessage=="Erorr Loading Data")
+	if(this.props.errormessage==="Erorr Loading Data")
 	{
 		return(<div className="passed-holiday-div2">{this.props.errormessage}</div>)
 	}
 
 	//showing loading message
-
-	if(this.props.upcomingholidays.length==0){
+	if (this.props.upcomingholidays.length === 0) {
 	return (
 	<div className="passed-holiday-div2">{this.props.loadingmessage}</div>
 )}
 
 //loading page data if everything ok
-else{
+	else {
 	return(<ParticularDateComponent upcomingholidays2={this.props.upcomingholidays}  showHideModal={this.props.showHideModal} clickeddate={this.props.clickeddate}/>)
 }
 

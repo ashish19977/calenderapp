@@ -109,11 +109,13 @@ max-height: 60%;
 .particularholiday-div{
   margin-top: 1%;
   margin-left: 1%;
-  background-color: rgba(0,0,0,.1);
+  background-color:black;
   font:bolder;
   height: 9%;
  width:12%;
   display: flex;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px #888888;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -122,10 +124,12 @@ overflow: hidden;
 
 #p1{
   font-size: 60px;
+  color: aliceblue;
 }
 
 #p2{
   font: bolder;
+  color:rgb(190, 129, 175);
   font-size: 25px;
 }
 
